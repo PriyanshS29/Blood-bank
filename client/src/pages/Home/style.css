@@ -1,0 +1,58 @@
+/* Home.css or Home.module.css */
+@keyframes bloodFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.blood-group-div {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+  position: relative;
+  background: linear-gradient(45deg, rgba(178, 98, 27, 1) 0%, rgba(206, 54, 29, 1) 100%);
+  background-size: 200% 200%;
+  animation: bloodFlow 5s linear infinite; /* Blood flow animation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.blood-group-div h1 {
+  font-size: 3rem;
+}
+
+.blood-group-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.blood-group-info span {
+  font-size: 1rem;
+}
+
+/* Optional: Make the text more readable by adding a darker overlay */
+.blood-group-div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2); /* Dark overlay */
+  border-radius: 10px;
+}
+
+
+
