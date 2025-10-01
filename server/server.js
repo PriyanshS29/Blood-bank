@@ -18,9 +18,10 @@
 
 
 const express = require("express");
+const path = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 const dbConfig = require("./config/dbConfig");
 app.use(express.json());
 
@@ -32,15 +33,5 @@ app.use("/api/users", usersRoute);
 app.use("/api/inventory", inventoryRoute);
 app.use("/api/dashboard", dashboardRoute);
 
-// deployment config
-const path = require("path");
-__dirname = path.resolve();
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
 
 app.listen(port, () => console.log(`Node JS Server Started at ${port}`));
