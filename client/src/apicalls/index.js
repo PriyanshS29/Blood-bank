@@ -27,7 +27,7 @@ export const axiosInstance = async (method, endpoint, payload) => {
   try {
     const response = await axios({
       method,
-      url: window.location.origin + endpoint,
+      url: `https://blood-bank-pmjc.onrender.com${endpoint}`,
       data: payload,
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
